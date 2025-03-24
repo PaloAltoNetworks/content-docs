@@ -12,10 +12,10 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: Checkout
         if: "endsWith(github.event.context, 'ci/circleci: build') && github.event.state == 'success'"
-        uses: actions/checkout@v2
+        uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2
       - name: Setup Python
         if: "endsWith(github.event.context, 'ci/circleci: build') && github.event.state == 'success'"
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@0f07f7f756721ebd886c2462646a35f78a8bc4de # v1
         with:
           python-version: '3.9'
       - name: Download Build
@@ -29,7 +29,7 @@ jobs:
           pipenv run ./content-repo/download_site_builid.py -e "$GITHUB_EVENT_PATH"
       - name: Setup Node
         if: "steps.build_download.outputs.forked_pr > 0"
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@f1f314fca9dfce2769ece7d933488f076716723e # v1
         with:
           node-version: '12.x'  
 #      - name: Deploy Netlify Build
