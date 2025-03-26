@@ -21,7 +21,7 @@ jobs:
       with:
         node-version: "${{ steps.nvm.outputs.NVMRC }}"
     - name: Cache npm
-      uses: actions/cache@v1
+      uses: actions/cache@f5ce41475b483ad7581884324a6eca9f48f8dcc7 # v1
       with:
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
